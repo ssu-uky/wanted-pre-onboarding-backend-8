@@ -188,6 +188,7 @@ SIMPLE_JWT = {
     "TOKEN_BLACKLIST_ENABLED": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
+    
     "ALGORITHM": "HS256",
     "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": None,
@@ -195,6 +196,7 @@ SIMPLE_JWT = {
     "ISSUER": None,
     "JWK_URL": None,
     "LEEWAY": 0,
+    
     "AUTH_HEADER_TYPES": ("Bearer",),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "USER_ID_CLAIM": "email",
@@ -205,6 +207,7 @@ SIMPLE_JWT = {
     "TOKEN_TYPE_CLAIM": "token_type",
     "JTI_CLAIM": "jti",
     "TOKEN_USER_CLASS": "users.User",
+    
     "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=10),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
@@ -220,7 +223,7 @@ ACCOUNT_EMAIL_REQUIRED = True  # 회원가입시 필수 이메일을 필수항�
 ACCOUNT_USERNAME_REQUIRED = False  # USERNAME 을 필수항목에서 제거
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
-
+# 로그인 기록
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True  # 비밀번호 지워지지않음
 ACCOUNT_SESSION_REMEMBER = True  # 브라우저를 닫아도 세션기록 유지! [ 로그인 안풀리게 ! ]
 SESSION_COOKIE_AGE = 3600
