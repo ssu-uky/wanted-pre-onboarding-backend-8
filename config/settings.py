@@ -28,7 +28,11 @@ THIRD_PARTY_APPS = [
     "corsheaders",
 ]
 
-CUSTOM_APPS = []
+CUSTOM_APPS = [
+    "users.apps.UsersConfig",
+    "boards.apps.BoardsConfig",
+    "common.apps.CommonConfig",
+]
 
 SYSTEM_APPS = [
     "django.contrib.admin",
@@ -47,7 +51,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-# AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "users.User"
 
 
 SITE_ID = 1
@@ -214,7 +218,7 @@ SIMPLE_JWT = {
 }
 
 
-APPEND_SLASH = False
+# APPEND_SLASH = False
 
 
 # 로그인 이메일 설정
