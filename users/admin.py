@@ -9,7 +9,6 @@ class UserAdmin(admin.ModelAdmin):
             "User Profile",
             {
                 "fields": (
-                    "name",
                     "email",
                     "password",
                     "is_admin",
@@ -32,9 +31,9 @@ class UserAdmin(admin.ModelAdmin):
             },
         ),
     )
-    
-    list_display = ("pk", "name", "email", "is_admin")
-    list_display_links = ("pk", "name", "email")
-    
+
+    list_display = ("pk", "email", "is_admin")
+    list_display_links = ("pk", "email")
+
     # pk 내림차순으로 정렬
-    ordering = ("-pk",)
+    ordering = ("pk",)

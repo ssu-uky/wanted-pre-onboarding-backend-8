@@ -5,11 +5,13 @@ from .manager import CustomUserManager
 
 
 class User(AbstractUser):
+    """ 사용자 모델 / "email", "password" 로 사용자 생성"""
+    
     username = None
     
     name = models.CharField(
         max_length=7,
-        blank=False,
+        blank=True,
         validators=[MinLengthValidator(2, "이름은 두 글자 이상이여야합니다.")],
     )
     
@@ -28,7 +30,7 @@ class User(AbstractUser):
     is_admin = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.name
+        return self.email
     
     class Meta:
         db_table = "users"
