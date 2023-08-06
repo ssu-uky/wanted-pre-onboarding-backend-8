@@ -35,5 +35,5 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ("pk", "email", "is_admin")
     list_display_links = ("pk", "email")
 
-    # pk 내림차순으로 정렬
-    ordering = ("pk",)
+    # pk 최근 가입 순으로 정렬
+    ordering = ("-pk",)

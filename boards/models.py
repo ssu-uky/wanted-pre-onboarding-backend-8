@@ -6,14 +6,16 @@ class WantedBoard(CommonModel):
     """이력서 작성 게시판"""
 
     class JobTypeChoices(models.TextChoices):
-        """구직자가 선택할 수 있는 직종"""
+        """구직자가 선택할 수 있는 직업 종류"""
 
-        DESIGN = "디자인"
-        PM = "기획"
-        FRONTEND = "프론트엔드"
-        BACKEND = "백엔드"
-        MARKETING = "마케팅"
-        ETC = "기타"
+        DESIGN = "DESIGN", "DESIGN"
+        PM = "PM", "PM"
+        FRONTEND = "FRONTEND", "FRONTEND"
+        BACKEND = "BACKEND", "BACKEND"
+        MARKETING = "MARKETING", "MARKETING"
+
+
+    writer = models.CharField(max_length=30, blank=False, verbose_name="작성자")
 
     title = models.CharField(
         max_length=30,
@@ -28,10 +30,13 @@ class WantedBoard(CommonModel):
     )
 
     job_type = models.CharField(
-        max_length=20,
+        max_length=15,
+        choices=JobTypeChoices.choices,
         blank=False,
+        verbose_name="직업 종류",
     )
 
-    Links = models.URLField()
+    links = models.URLField(blank=True, verbose_name="링크")
 
-    file = models.URLField()
+    def __str__(self):
+        return self.writer

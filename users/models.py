@@ -5,7 +5,7 @@ from .manager import CustomUserManager
 
 
 class User(AbstractUser):
-    """ 사용자 모델 / "email", "password" 로 사용자 생성"""
+    """ 사용자 모델 설정 "email", "password" 로 사용자 생성"""
     
     username = None
     

@@ -6,7 +6,6 @@ from django.contrib.auth.hashers import make_password
 
 # 회원가입
 class SignUpSerializer(serializers.ModelSerializer):
-    # password = serializers.CharField(write_only=True)
 
     class Meta:
         model = User
@@ -33,4 +32,5 @@ class LoginSerializer(serializers.ModelSerializer):
             "email",
             "password",
         )
+        
         read_only_fields = ("pk",)

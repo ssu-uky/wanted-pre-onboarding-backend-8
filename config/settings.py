@@ -127,14 +127,9 @@ LANGUAGE_CODE = "ko-kr"
 
 TIME_ZONE = "Asia/Seoul"
 
-DATE_INPUT_FORMATS = ["%Y-%m-%d"]
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-DATE_FORMAT = "F j"
-
-
-USE_I18N = False
-
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -153,6 +148,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 5,
 }
 
 CORS_ALLOW_HEADERS = [
@@ -192,7 +189,6 @@ SIMPLE_JWT = {
     "TOKEN_BLACKLIST_ENABLED": True,
     "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": False,
-    
     "ALGORITHM": "HS256",
     "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": None,
@@ -200,7 +196,6 @@ SIMPLE_JWT = {
     "ISSUER": None,
     "JWK_URL": None,
     "LEEWAY": 0,
-    
     "AUTH_HEADER_TYPES": ("Bearer",),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "USER_ID_CLAIM": "email",
@@ -211,7 +206,6 @@ SIMPLE_JWT = {
     "TOKEN_TYPE_CLAIM": "token_type",
     "JTI_CLAIM": "jti",
     "TOKEN_USER_CLASS": "users.User",
-    
     "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=10),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
@@ -233,5 +227,5 @@ ACCOUNT_SESSION_REMEMBER = True  # 브라우저를 닫아도 세션기록 유지
 SESSION_COOKIE_AGE = 3600
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
-# 한 페이지 당 보여줄 갯수(pagination)
-PAGE_SIZE = 5
+# 한 페이지 당 보여줄 갯수(pagination) / 게시글에 직접 적음
+# PAGE_SIZE = 10
