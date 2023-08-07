@@ -5,8 +5,15 @@ from rest_framework import serializers
 class BoardSerializer(serializers.ModelSerializer):
     class Meta:
         model = WantedBoard
-        fields = "__all__"
-        
-        read_only_fields = (
-            "pk,",
+        fields = (
+            "id",
+            "writer",
+            "title",
+            "content",
+            "job_type",
+            "links",
+            "created_at",
+            "updated_at",
         )
+
+        read_only_fields = ("pk",)

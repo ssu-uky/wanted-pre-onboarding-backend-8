@@ -1,7 +1,6 @@
 from django.db import models
 from common.models import CommonModel
 
-
 class WantedBoard(CommonModel):
     """이력서 작성 게시판"""
 

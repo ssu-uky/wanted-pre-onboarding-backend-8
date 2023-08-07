@@ -33,5 +33,4 @@ class User(AbstractUser):
         return self.email
     
     class Meta:
-        db_table = "users"
         verbose_name_plural = "Users"

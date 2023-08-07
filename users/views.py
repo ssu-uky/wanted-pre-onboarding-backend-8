@@ -24,7 +24,9 @@ class SignUpView(APIView):
 
         if serializer.is_valid(raise_exception=True):
             if not (email and password):
-                return Response({"message": "모든 값을 입력해주세요."},status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {"message": "모든 값을 입력해주세요."}, status=status.HTTP_400_BAD_REQUEST
+                )
 
             user = serializer.save()
             user.save()
@@ -79,7 +81,11 @@ class LoginView(APIView):
             )
 
             # refresh token을 cookie에 저장
-            response.set_cookie("refresh_token", refresh_token, httponly=True)
+            response.set_cookie(
+                "refresh_token",
+                refresh_token,
+                httponly=True,
+            )
             return response
 
         else:
@@ -101,12 +107,14 @@ class LogoutView(APIView):
                 refresh.blacklist()
                 response = Response({"message": "로그아웃 성공"}, status=status.HTTP_200_OK)
                 response.delete_cookie("refresh_token")
-                
+
                 # session 에 저장된 id값도 지우기
                 logout(request)
-                
+
                 return response
             except TokenError:
-                return Response({"message": "토큰이 유효하지 않습니다."}, status=status.HTTP_400_BAD_REQUEST)
+                return Response(
+                    {"message": "토큰이 유효하지 않습니다."}, status=status.HTTP_400_BAD_REQUEST
+                )
         else:
             return Response({"message": "로그아웃 실패"}, status=status.HTTP_400_BAD_REQUEST)

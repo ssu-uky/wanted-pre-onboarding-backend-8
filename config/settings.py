@@ -2,6 +2,7 @@ import os
 import environ
 from pathlib import Path
 from datetime import timedelta
+from datetime import datetime
 import my_settings
 
 
@@ -91,14 +92,14 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
-# DATABASES = my_settings.MY_DATABASES
+DATABASES = my_settings.DATABASES
 
 
 # Password validation
@@ -123,11 +124,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+
+now = datetime.now()
+
+
 LANGUAGE_CODE = "ko-kr"
 
 TIME_ZONE = "Asia/Seoul"
 
-DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+now.strftime('%Y-%m-%d %H:%M:%S')
+
+# DATE_INPUT_FORMATS = ["%Y-%m-%d"]
+
+# DATETIME_FORMAT = "%Y-%m-%d"
 
 USE_TZ = False
 
@@ -215,7 +224,7 @@ SIMPLE_JWT = {
 # APPEND_SLASH = False
 
 
-# 로그인 이메일 설정
+# 이메일 로그인 설정
 ACCOUNT_AUTHENTICATION_METHOD = "email"  # 로그인시 username 이 아니라 email을 사용하게 하는 설정
 ACCOUNT_EMAIL_REQUIRED = True  # 회원가입시 필수 이메일을 필수항목으로 만들기
 ACCOUNT_USERNAME_REQUIRED = False  # USERNAME 을 필수항목에서 제거
@@ -227,5 +236,4 @@ ACCOUNT_SESSION_REMEMBER = True  # 브라우저를 닫아도 세션기록 유지
 SESSION_COOKIE_AGE = 3600
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
-# 한 페이지 당 보여줄 갯수(pagination) / 게시글에 직접 적음
-# PAGE_SIZE = 10
+
