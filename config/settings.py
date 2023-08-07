@@ -132,7 +132,7 @@ LANGUAGE_CODE = "ko-kr"
 
 TIME_ZONE = "Asia/Seoul"
 
-now.strftime('%Y-%m-%d %H:%M:%S')
+now.strftime('%Y-%m-%d, H:%M:%S')
 
 # DATE_INPUT_FORMATS = ["%Y-%m-%d"]
 
