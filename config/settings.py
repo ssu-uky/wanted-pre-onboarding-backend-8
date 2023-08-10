@@ -134,9 +134,6 @@ TIME_ZONE = "Asia/Seoul"
 
 now.strftime('%Y-%m-%d, H:%M:%S')
 
-# DATE_INPUT_FORMATS = ["%Y-%m-%d"]
-
-# DATETIME_FORMAT = "%Y-%m-%d"
 
 USE_TZ = False
 
@@ -174,11 +171,11 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
