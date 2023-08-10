@@ -118,3 +118,7 @@ class LogoutView(APIView):
                 )
         else:
             return Response({"message": "로그아웃 실패"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+def index(request):
+    return render(request, "index.html")
