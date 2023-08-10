@@ -92,14 +92,14 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 
-DATABASES = my_settings.DATABASES
+# DATABASES = my_settings.DATABASES
 
 
 # Password validation
@@ -172,10 +172,12 @@ CORS_ALLOW_HEADERS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
+    my_settings.MY_DOMAIN,
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
+    my_settings.MY_DOMAIN,
 ]
 
 CORS_ALLOW_CREDENTIALS = True
