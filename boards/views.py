@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
-from .serializers import BoardSerializer
+from .serializers import BoardSerializer, BoardListSerializer
 from .models import WantedBoard
 
 
@@ -16,7 +16,7 @@ class BoardWriteView(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        return Response({"message": "title, content, job_type, link(선택사항),file(선택사항)을 입력해주세요."}, status=status.HTTP_200_OK) 
+        return Response({"message": "title, contents, job_type, link(선택사항) 을 입력해주세요."}, status=status.HTTP_200_OK) 
 
     def post(self, request):
         if not request.user.is_authenticated:
@@ -27,8 +27,9 @@ class BoardWriteView(APIView):
         board_data = {
             "writer": request.user.email,
             "title": request.data.get("title"),
-            "content": request.data.get("content"),
+            "contents": request.data.get("contents"),
             "job_type": request.data.get("job_type"),
+            "link": request.data.get("link"),
         }
 
         serializer = BoardSerializer(data=board_data)
@@ -47,7 +48,7 @@ class BoardListView(APIView):
         paginator = PageNumberPagination()
         queryset = WantedBoard.objects.all()
         context = paginator.paginate_queryset(queryset, request)
-        serializer = BoardSerializer(context, many=True)
+        serializer = BoardListSerializer(context, many=True)
         return paginator.get_paginated_response(serializer.data)
 
 
@@ -60,13 +61,19 @@ class BoardDetailView(APIView):
         except WantedBoard.DoesNotExist:
             return None
 
-    # 게시글 조회
+    # 게시글 조회 == 작성자와 admin만 가능
     def get(self, request, pk):
         board = self.get_object(pk)
         if board is None:
             return Response(
                 {"message": "해당 게시글이 존재하지 않습니다."},
                 status=status.HTTP_404_NOT_FOUND,
+            )
+
+        if request.user.email != board.writer and not request.user.is_admin:
+            return Response(
+                {"message": "권한이 없습니다."},
+                status=status.HTTP_403_FORBIDDEN
             )
         serializer = BoardSerializer(board)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -106,5 +113,5 @@ class BoardDetailView(APIView):
             )
 
         board.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_contents)
 

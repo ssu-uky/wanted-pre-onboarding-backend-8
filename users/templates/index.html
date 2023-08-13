@@ -1,38 +1,67 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" contents="width=device-width, initial-scale=1.0">
     <title>Hello ssu-uky World!</title>
     <style>
-        a{
+        a {
             text-decoration: none;
             color: black;
             font-weight: bold;
         }
-        a:hover{
+
+        ul {
+            font-size: 23px;
+            font-weight: 500;
+        }
+
+        li {
+            margin: 10px 0;
+            right: 0;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        a:hover {
             color: hotpink;
             cursor: pointer;
         }
-        
-        .contents{
+
+        header {
+            width: 100%;
+            text-align: center;
+        }
+
+        .contentss {
             width: 100%;
             height: 200px;
-            margin: 0 auto;
-            text-align: center;
+            position: fixed;
+            left: 0;
+            text-align: left;
             font-size: 20px;
-            padding: 20px 0;
+            padding: 30px;
+            display: inline-block;
             background-color: #f2f2f2;
         }
-        .links{
+
+
+
+        .api_title>a {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .link {
             display: inline-block;
-            justify-content: space-evenly;
+            justify-contents: space-evenly;
             margin: 0 auto;
             text-align: center;
             padding: 30px 0;
         }
 
-        Footer{
+        Footer {
             position: fixed;
             bottom: 0;
             left: 0;
@@ -43,41 +72,49 @@
             padding: 30px 0;
             background-color: #f2f2f2;
             display: flex;
-            justify-content: space-evenly;
+            justify-contents: space-evenly;
         }
     </style>
 </head>
+
 <body>
-    <div align="center">
+    <div align="center"><br>
         <header>
-        <h1>My name is suhyun.</h1>
+            <h1>Wanted-pre-onboarding for backend pre-task!</h1><br>
         </header>
 
-        <div class="subtitle">
-        <h3>This is Wanted-pre-onboading for Backend pre-task!</h3>
+        <div class="contentss">
+            <div class="api">
+                <div class="api_title" align="center">
+                    <a href="https://ssu-uky.gitbook.io/wanted-pre-onboarding-backend/">API DOCS</a>
+                </div>
+                <ul class="users"> users
+                    <li>
+                        <a href="https://ssu-uky.store/api/users/signup/"> 회원가입 </a>
+                    </li>
+                    <li>
+                        <a href="https://ssu-uky.store/api/users/login/"> 로그인 </a>
+                    </li>
+                    <li>
+                        <a href="https://ssu-uky.store/api/users/logout/"> 로그아웃 </a>
+                    </li>
+                </ul>
+                <ul class="boards"> boards
+                    <li>
+                        <a href="https://ssu-uky.store/api/boards/list"> 게시글 목록 </a>
+                    </li>
+                    <li>
+                        <a href="https://ssu-uky.store/api/boards/<int:pk>/"> 게시글 상세 </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="contents">
-            여기에 본문 쓸 거에용
-        </div>
-
-        <div class="links" display="inline-block">
-            {% comment %} <img src="https://img.freepik.com/premium-vector/online-network-blog-web-media-social-networking-media-content-online-gallery-concept-man-sitting-big-laptop-with-play-button-flat-illustration_126283-1530.jpg" alt="video" width="200px"> {% endcomment %}
-            <br>
-            <a href=""><img src="https://img.freepik.com/premium-vector/online-network-blog-web-media-social-networking-media-content-online-gallery-concept-man-sitting-big-laptop-with-play-button-flat-illustration_126283-1530.jpg" alt="video" width="200px"><br>API VIDEO </a>
-        </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="links" display="inline-block">
-            {% comment %} <img src="https://cdn-icons-png.flaticon.com/512/627/627558.png?w=1060&t=st=1691702418~exp=1691703018~hmac=a35a9a0de3f42e560ffd0391654176c87d3fc4001b13f14cd890ef673b3e800b" alt="api" width="200px" height="200px"> {% endcomment %}
-            {% comment %} <img src="https://img.freepik.com/free-vector/flat-design-api-illustration_23-2149380374.jpg?w=1480&t=st=1691702624~exp=1691703224~hmac=e2b0e6636779916933d93661a168501611cf79ff23ff3a8bae0792cd65a5c8e8" alt="api" width="200px"> {% endcomment %}
-            <br>
-            <a href=""><img src="https://img.freepik.com/free-vector/flat-design-api-illustration_23-2149380374.jpg?w=1480&t=st=1691702624~exp=1691703224~hmac=e2b0e6636779916933d93661a168501611cf79ff23ff3a8bae0792cd65a5c8e8" alt="api" width="200px"><br> API DOCUMENT </a>
-        <div>
-    
-    <Footer>
-        <a href="https://github.com/ssu-uky">My GitHub</a>&nbsp;&nbsp;
-        <a href="https://velog.io/@ssu-uky">My velog</a>
-    </Footer>
-</div>
+        <Footer>
+            <a href="https://github.com/ssu-uky">My GitHub</a>&nbsp;&nbsp;
+            <a href="https://velog.io/@ssu-uky">My velog</a>
+        </Footer>
+    </div>
 </body>
+
 </html>

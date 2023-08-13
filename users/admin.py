@@ -33,7 +33,7 @@ class UserAdmin(admin.ModelAdmin):
     )
 
     list_display = ("pk", "email", "date_joined", "is_admin")
-    list_display_links = ("pk", "email")
+    list_display_link = ("pk", "email")
 
     # pk 최근 가입 순으로 정렬
     ordering = ("-pk",)

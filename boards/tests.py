@@ -19,7 +19,7 @@ class BoardTest(TestCase):
         self.board_data = {
             "writer": self.user["email"],
             "title": "test title",
-            "content": "test content",
+            "contents": "test contents",
             "job_type": "PM",
         }
 
@@ -116,7 +116,7 @@ class BoardTest(TestCase):
 
         update_data = {
             "title": "update title",
-            "content": "update content",
+            "contents": "update contents",
             "job_type": "FRONTEND",
         }
         

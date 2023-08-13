@@ -22,7 +22,7 @@ class WantedBoard(CommonModel):
         verbose_name="제목",
     )
 
-    content = models.TextField(
+    contents = models.TextField(
         max_length=300,
         blank=False,
         verbose_name="내용",
@@ -35,7 +35,7 @@ class WantedBoard(CommonModel):
         verbose_name="직업 종류",
     )
 
-    links = models.URLField(blank=True, verbose_name="링크")
+    link = models.URLField(blank=True, null=True, verbose_name="링크")
 
     def __str__(self):
         return self.writer
