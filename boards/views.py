@@ -46,7 +46,7 @@ class BoardListView(APIView):
 
     def get(self, request):
         paginator = PageNumberPagination()
-        queryset = WantedBoard.objects.all()
+        queryset = WantedBoard.objects.all().order_by("created_at") # 오름차순 정렬
         context = paginator.paginate_queryset(queryset, request)
         serializer = BoardListSerializer(context, many=True)
         return paginator.get_paginated_response(serializer.data)
@@ -63,6 +63,13 @@ class BoardDetailView(APIView):
 
     # 게시글 조회 == 작성자와 admin만 가능
     def get(self, request, pk):
+        
+        if not request.user.is_authenticated: # 사용자가 인증되었는지 확인
+            return Response(
+                {"message": "로그인이 필요합니다."},
+                status=status.HTTP_401_UNAUTHORIZED
+            )
+        
         board = self.get_object(pk)
         if board is None:
             return Response(
@@ -113,5 +120,5 @@ class BoardDetailView(APIView):
             )
 
         board.delete()
-        return Response(status=status.HTTP_204_NO_contents)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 

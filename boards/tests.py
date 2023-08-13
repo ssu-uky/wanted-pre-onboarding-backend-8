@@ -100,7 +100,7 @@ class BoardTest(TestCase):
 
     # 게시글 PK로 상세 조회 테스트 / PK / GET
     def test_get_board_detail(self):
-        # self.authenticate()
+        self.authenticate()
         board_pk = self.board.pk
 
         response = self.client.get(f"/api/boards/detail/{board_pk}/")
