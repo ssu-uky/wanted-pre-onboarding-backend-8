@@ -3,25 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" contents="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <title>Hello ssu-uky World!</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Hello ssu-uky World!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #999;
+        }
+
         a {
             text-decoration: none;
             color: black;
             font-weight: bold;
-        }
-
-        ul {
-            font-size: 23px;
-            font-weight: 500;
-        }
-
-        li {
-            margin: 10px 0;
-            right: 0;
-            font-size: 15px;
-            font-weight: 300;
         }
 
         a:hover {
@@ -32,33 +33,38 @@
         header {
             width: 100%;
             text-align: center;
+            margin: 30px 0;
         }
 
-        .contentss {
-            width: 100%;
-            height: 200px;
-            position: fixed;
-            left: 0;
-            text-align: left;
-            font-size: 20px;
-            padding: 30px;
-            display: inline-block;
-            background-color: #f2f2f2;
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 20px 0;
         }
 
+        h3 {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
 
-
-        .api_title>a {
-            font-size: 20px;
+        .col-api {
+            width: 50%;
+            margin: 30px 0;
+            font-size: 23px;
             font-weight: bold;
         }
 
-        .link {
-            display: inline-block;
-            justify-contents: space-evenly;
-            margin: 0 auto;
-            text-align: center;
-            padding: 30px 0;
+        .col-api>a {
+            display: block;
+            padding: 10px 0;
+            font-size: 17px;
+            margin: 15px 0;
+        }
+
+        p {
+            font-size: 15px;
+            color: #999;
         }
 
         Footer {
@@ -66,55 +72,69 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            height: 130px;
             margin: 0 auto;
             text-align: center;
             font-size: 17px;
             padding: 30px 0;
             background-color: #f2f2f2;
+        }
+
+        .footer-a {
+            width: 100%;
             display: flex;
-            justify-contents: space-evenly;
+            justify-content: space-evenly;
+            margin: 10px 0 15px 0;
+        }
+
+        .footer-p {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0 0 0;
         }
     </style>
 </head>
 
 <body>
-    <div align="center"><br>
-        <header>
-            <h1>Wanted-pre-onboarding for backend pre-task!</h1><br>
-        </header>
-
-        <div class="contentss">
-            <div class="api">
-                <div class="api_title" align="center">
-                    <a href="https://ssu-uky.gitbook.io/wanted-pre-onboarding-backend/">API DOCS</a>
-                </div>
-                <ul class="users"> users
-                    <li>
-                        <a href="https://ssu-uky.store/api/users/signup/"> 회원가입 </a>
-                    </li>
-                    <li>
-                        <a href="https://ssu-uky.store/api/users/login/"> 로그인 </a>
-                    </li>
-                    <li>
-                        <a href="https://ssu-uky.store/api/users/logout/"> 로그아웃 </a>
-                    </li>
-                </ul>
-                <ul class="boards"> boards
-                    <li>
-                        <a href="https://ssu-uky.store/api/boards/list"> 게시글 목록 </a>
-                    </li>
-                    <li>
-                        <a href="https://ssu-uky.store/api/boards/<int:pk>/"> 게시글 상세 </a>
-                    </li>
+    <!-- <div align="center"> -->
+    <header>
+        <h2>Wanted-pre-onboarding for backend pre-task!</h2>
+    </header>
+    <div class="container" display="fixed" align="center">
+        <div class="row">
+            <div class="col">
+                <a href="https://ssu-uky.gitbook.io/wanted-pre-onboarding-backend/">
+                    <h3>API DOCS</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-api"> USERS <br><br>
+                <a href="https://ssu-uky.store/api/users/signup/"> 회원가입 </a>
+                <a href="https://ssu-uky.store/api/users/login/"> 로그인 </a>
+                <a href="https://ssu-uky.store/api/users/logout/"> 로그아웃 </a>
+            </div>
+            <div class="col-api"> BOARDS <br><br>
+                <a href="https://ssu-uky.store/api/boards/list"> 게시글 목록 </a>
+                <a href="https://ssu-uky.store/api/boards/detail/1/"> 게시글 상세 <p>list에서 id 번호 확인 후 이동해주세요.</p></a>
                 </ul>
             </div>
         </div>
-
         <Footer>
-            <a href="https://github.com/ssu-uky">My GitHub</a>&nbsp;&nbsp;
-            <a href="https://velog.io/@ssu-uky">My velog</a>
+            <div class="footer-a">
+                <a href="https://github.com/ssu-uky">My GitHub</a>
+                <!-- &nbsp;&nbsp; -->
+                <a href="https://velog.io/@ssu-uky">My velog</a>
+            </div>
+            <div class="footer-p">
+                <p>ⓒ 2023. ssu-uky all rights reserved.</p>
+            </div>
         </Footer>
-    </div>
+        <!-- </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+
 </body>
 
 </html>
