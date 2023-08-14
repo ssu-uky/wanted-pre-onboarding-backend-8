@@ -11,6 +11,12 @@
 > * pip install -r requirements.txt <br>
 > * python manage.py runserver <br>
 
+--- 
+
+> ## 배포 링크
+> <a> https://www.ssu-uky.store/ </a>
+
+---
 
 > ## 구현 방법 및 이유
 >
@@ -70,7 +76,8 @@
 ---
 
 > ## API 데모 영상 링크
-> 
+> <a href="https://photos.google.com/share/AF1QipOQisp2leM-nzDLaHci7q9a1AsBT557ddhPpMqFt0Uy3lNzB9wk08NP1Cniz58_8g/photo/AF1QipNWOfedlvSIgkwdjkb1k0qpFpjLPd3JMwelTOth?key=TG95MUF1T1YyLXdKTkQyU2lZX2hhRXUwcjlXYjd3">
+> 데모 영상 링크 </a>
 
 ---
 
@@ -91,5 +98,5 @@
 
 > ## test code 실행 방법
 > * python manage.py test
-> * python manage.py test users.tests / users test
-> * python manage.py test boards.tests / boards test
+> * python manage.py test users.tests == users test
+> * python manage.py test boards.tests == boards test
