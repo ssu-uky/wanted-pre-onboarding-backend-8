@@ -89,7 +89,8 @@ class UserAccountTest(TestCase):
         self.assertNotIn(session_id , self.client.cookies)
         # print({"remove cookie: "}, self.client.cookies) # 삭제 완료
         
-        # 유효하지 않은 토큰으로 로그인 시도
+    # 유효하지 않은 토큰으로 로그인 시도
+    def test_logout_with_invalid_token(self):
         self.client.cookies["refresh_token"] = "invalid_token"
         response = self.client.post(reverse("logout"))
         self.assertEqual(response.status_code, 400)
