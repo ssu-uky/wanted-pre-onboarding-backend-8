@@ -44,6 +44,8 @@ python manage.py runserver
 
 ## 2-1. 엔드 포인트 호출 방법
 
+BASE_URL = https://ssu-uky.store/
+
 | description | method | url | permission |
 | ---- | ---- | ---- | ----|
 | 회원가입 | `POST` | /api/users/signup/ | `AllowAny` |
@@ -51,9 +53,11 @@ python manage.py runserver
 | 로그아웃 | `POST` | /api/users/logout/ | `IsAuthenticated` |
 | 게시글 목록 조회 | `GET` | /api/boards/list/ | `AllowAny` |
 | 게시글 작성 | `POST` | /api/boards/write/ | `IsAuthenticated` |
-| 특정 게시글 조회 | `GET` | /api/boards/<board_id>/ | `IsAuthenticated` , `IsAdminUser` |
-| 특정 게시글 수정 | `PUT` | /api/boards/<board_id>/ | `IsAuthenticated` |
-| 특정 게시글 삭제 | `DELETE` | /api/boards/<board_id>/ | `IsAuthenticated` |
+| 특정 게시글 조회 | `GET` | /api/boards/detail/<board_id>/ | `IsAuthenticated` , `IsAdminUser` |
+| 특정 게시글 수정 | `PUT` | /api/boards/detail/<board_id>/ | `IsAuthenticated` |
+| 특정 게시글 삭제 | `DELETE` | /api/boards/detail/<board_id>/ | `IsAuthenticated` |
+
+<board_id> = int:pk
 
 ---
 
