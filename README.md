@@ -12,7 +12,7 @@ https://ssu-uky.store/
 ---
 
 ## 2. 애플리케이션의 실행 방법
-root 폴더에 `touch .env` , `touch my_settings.py` 추가
+root 폴더에 `.env` , `my_settings.py` 파일 추가
 ```py
 .env
 
